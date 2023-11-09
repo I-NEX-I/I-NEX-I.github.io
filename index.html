@@ -16,13 +16,14 @@
 
         video {
             width: 100%;
-            max-width: 800px;
             height: auto;
+            max-height: 100vh; /* Limit the height to the viewport height */
         }
 
         #playButton {
             cursor: pointer;
             font-size: 24px;
+            display: none; /* Hide the play button by default */
         }
     </style>
 </head>
@@ -30,7 +31,6 @@
     <!-- Video Player -->
     <video id="randomVideo" controls loop>
         <!-- Fallback for browsers that don't support the video tag -->
-        <source src="fallback-video.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
 
@@ -38,34 +38,38 @@
     <div id="playButton">&#9654; Play</div>
 
     <script>
-        // JavaScript code for random video selection
+        // JavaScript code for dynamic video loading and playing
         document.addEventListener('DOMContentLoaded', function () {
-            // Array of video filenames or paths
-            var videos = [
-                'video1.mp4',
-                'video2.mp4',
-                'video3.mp4'
-                // Add more videos as needed
-            ];
-
-            // Get a random index from the videos array
-            var randomIndex = Math.floor(Math.random() * videos.length);
-
-            // Get the video element
             var videoElement = document.getElementById('randomVideo');
             var playButton = document.getElementById('playButton');
 
-            // Set the source of the video element to the randomly selected video
-            videoElement.src = videos[randomIndex];
+            // Define an array of video filenames
+            var videos = [
+                'video1.mp4',
+                'video2.mp4',
+                'video3.mp4',
+                // Add more videos as needed
+            ];
 
             // Add click event listener to the play button
             playButton.addEventListener('click', function () {
                 // Hide the play button
                 playButton.style.display = 'none';
-                
+
+                // Get a random index from the videos array
+                var randomIndex = Math.floor(Math.random() * videos.length);
+
+                // Set the source of the video element to the randomly selected video
+                videoElement.src = videos[randomIndex];
+
                 // Play the video
                 videoElement.play();
             });
+
+            // Check if it's a mobile device and hide the play button
+            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                playButton.style.display = 'none';
+            }
         });
     </script>
 </body>
