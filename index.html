@@ -59,14 +59,8 @@
             // Get a random index from the videos array
             var randomIndex = Math.floor(Math.random() * videos.length);
 
-            // Log the selected video filename
-            console.log('Selected video:', videos[randomIndex]);
-
             // Set the source of the video element to the randomly selected video
             videoElement.src = videos[randomIndex];
-
-            // Log the video source
-            console.log('Video source:', videoElement.src);
 
             // Play the video
             videoElement.play();
