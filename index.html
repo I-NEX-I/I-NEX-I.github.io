@@ -4,12 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Random Video Player</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+
+        video {
+            width: 100%;
+            height: 100vh;
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcome to the Random Video Player!</h1>
-
     <!-- Video Player -->
-    <video id="randomVideo" width="640" height="360" controls>
+    <video id="randomVideo" autoplay controls>
         <!-- Fallback for browsers that don't support the video tag -->
         <source src="fallback-video.mp4" type="video/mp4">
         Your browser does not support the video tag.
