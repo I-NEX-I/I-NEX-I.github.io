@@ -38,42 +38,45 @@
     <div id="playButton">&#9654; Play</div>
 
     <script>
-        // JavaScript code for dynamic video loading and playing
-        document.addEventListener('DOMContentLoaded', function () {
-            var videoElement = document.getElementById('randomVideo');
-            var playButton = document.getElementById('playButton');
+    // JavaScript code for dynamic video loading and playing
+    document.addEventListener('DOMContentLoaded', function () {
+        var videoElement = document.getElementById('randomVideo');
+        var playButton = document.getElementById('playButton');
 
-            // Define an array of video filenames
-            var videos = [
-                'video1.mp4',
-                'video2.mp4',
-                'video3.mp4',
-                // Add more videos as needed
-            ];
+        // Define an array of video filenames
+        var videos = [
+            'video1.mp4',
+            'video2.mp4',
+            'video3.mp4',
+            // Add more videos as needed
+        ];
 
-            // Add click event listener to the play button
-            playButton.addEventListener('click', function () {
-                // Hide the play button
-                playButton.style.display = 'none';
+        // Add click event listener to the play button
+        playButton.addEventListener('click', function () {
+            // Hide the play button
+            playButton.style.display = 'none';
 
-                // Get a random index from the videos array
-                var randomIndex = Math.floor(Math.random() * videos.length);
+            // Get a random index from the videos array
+            var randomIndex = Math.floor(Math.random() * videos.length);
 
-                // Log the selected video filename
-                console.log('Selected video:', videos[randomIndex]);
+            // Log the selected video filename
+            console.log('Selected video:', videos[randomIndex]);
 
-                // Set the source of the video element to the randomly selected video
-                videoElement.src = videos[randomIndex];
+            // Set the source of the video element to the randomly selected video
+            videoElement.src = videos[randomIndex];
 
-                // Play the video
-                videoElement.play();
-            });
+            // Log the video source
+            console.log('Video source:', videoElement.src);
 
-            // Check if it's a mobile device and hide the play button
-            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-                playButton.style.display = 'none';
-            }
+            // Play the video
+            videoElement.play();
         });
-    </script>
+
+        // Check if it's a mobile device and hide the play button
+        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+            playButton.style.display = 'none';
+        }
+    });
+</script>
 </body>
 </html>
